@@ -1,7 +1,8 @@
 **API Documentation**
 
-```GET /getPendulums HTTP/1.1```
-Returns current pendulum configuration as a JSON object.
+Get Pendulums API - Returns current pendulum configuration as a JSON object.
+
+Route: ```GET /getPendulums HTTP/1.1```
 
 Example Request:
 ```http://localhost/getPendulums```
