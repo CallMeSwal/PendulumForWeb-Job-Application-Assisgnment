@@ -1,3 +1,6 @@
+Simple pendulum simulator with Node.js. Each pendulum runs on a unique TCP port.
+Demo - https://youtu.be/INakaHLFJzM.
+
 **API Documentation**
 
 Get Pendulums API - Returns current pendulum configuration as a JSON object.
