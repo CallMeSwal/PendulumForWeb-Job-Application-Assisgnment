@@ -55,9 +55,9 @@ pendulumServer5.on('error', function(err) {
 function updateNeighborLeft(id){
     var http = new XMLHttpRequest();
     http.responseType = 'json';
-    http.open("get", "http://server.swal.me:811"+id+"/updateNeighborLeft");
+    http.open("get", "http://localhost:811"+id+"/updateNeighborLeft");
     http.onerror = function (error) {
-        console.log("Not able to access: http://server.swal.me:811"+id+"/updateNeighborLeft");
+        console.log("Not able to access: http://localhost:811"+id+"/updateNeighborLeft");
         setTimeout(function () {updateNeighborLeft(id)}, 2000);
     };
     http.send();
@@ -67,9 +67,9 @@ function updateNeighborLeft(id){
 function updateNeighborRight(id){
     var http = new XMLHttpRequest();
     http.responseType = 'json';
-    http.open("get", "http://server.swal.me:811"+id+"/updateNeighborRight");
+    http.open("get", "http://localhost:811"+id+"/updateNeighborRight");
     http.onerror = function () {
-        console.log("Not able to access: http://server.swal.me:811"+id+"/updateNeighborRight");
+        console.log("Not able to access: http://localhost:811"+id+"/updateNeighborRight");
         setTimeout(function () {updateNeighborRight(id)}, 2000);
     };
     http.send();
@@ -90,21 +90,21 @@ setTimeout(function () {updateNeighborLeft(5)}, 2000);
 var http = new XMLHttpRequest();
 http.responseType = 'json';
 
-http.open("get", "http://server.swal.me:8111/updateNeighborRight");
+http.open("get", "http://127.0.0.1:8111/updateNeighborRight");
 http.send();
-http.open("get", "http://server.swal.me:8112/updateNeighborLeft");
+http.open("get", "http://127.0.0.1:8112/updateNeighborLeft");
 http.send();
-http.open("get", "http://server.swal.me:8112/updateNeighborRight");
+http.open("get", "http://127.0.0.1:8112/updateNeighborRight");
 http.send();
-http.open("get", "http://server.swal.me:8113/updateNeighborLeft");
+http.open("get", "http://127.0.0.1:8113/updateNeighborLeft");
 http.send();
-http.open("get", "http://server.swal.me:8113/updateNeighborRight");
+http.open("get", "http://127.0.0.1:8113/updateNeighborRight");
 http.send();
-http.open("get", "http://server.swal.me:8114/updateNeighborLeft");
+http.open("get", "http://127.0.0.1:8114/updateNeighborLeft");
 http.send();
-http.open("get", "http://server.swal.me:8114/updateNeighborRight");
+http.open("get", "http://127.0.0.1:8114/updateNeighborRight");
 http.send();
-http.open("get", "http://server.swal.me:8115/updateNeighborLeft");
+http.open("get", "http://127.0.0.1:8115/updateNeighborLeft");
 http.send();
-http.open("get", "http://server.swal.me:8115/updateNeighborRight");
+http.open("get", "http://127.0.0.1:8115/updateNeighborRight");
 http.send();*/

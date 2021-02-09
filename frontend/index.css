@@ -5,7 +5,7 @@
 
 #canvasMain{
     /*background-color:grey;*/
-    background-image: url("./img/earth.jpg");
+    background-image: url("./img/jupiter.jpg");
 }
 
 .adjButton{
@@ -14,6 +14,7 @@
 
 .resButton{
     margin-bottom: 15px;
+    margin-right: 10px;
 }
 
 .pText{
@@ -34,6 +35,12 @@ input[type="radio"]{
 .windInput{
     margin-left:20px;
 }
+
+.threshInput{
+    margin-left:20px;
+    margin-bottom: -200px;
+}
+
 .left{
     margin-left: 10px;
 }

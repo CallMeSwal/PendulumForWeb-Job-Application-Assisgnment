@@ -6,9 +6,9 @@ const router = express.Router();
 function updateNeighborLeft(id){
     var http = new XMLHttpRequest();
     http.responseType = 'json';
-    http.open("get", "http://server.swal.me:811"+id+"/updateNeighborLeft");
+    http.open("get", "http://127.0.0.1:811"+id+"/updateNeighborLeft");
     http.onerror = function (error) {
-        console.log("hello Not able to access: http://127.0.0.1:811"+id+"/updateNeighborLeft");
+        console.log("hello Not able to access: http://http://127.0.0.1:811"+id+"/updateNeighborLeft");
         setTimeout(function () {updateNeighborLeft(id)}, 2000);
     };
     http.send();
@@ -18,9 +18,9 @@ function updateNeighborLeft(id){
 function updateNeighborRight(id){
     var http = new XMLHttpRequest();
     http.responseType = 'json';
-    http.open("get", "http://127.0.0.1:811"+id+"/updateNeighborRight");
+    http.open("get", "http://http://127.0.0.1:811"+id+"/updateNeighborRight");
     http.onerror = function () {
-        console.log("hello Not able to access: http://127.0.0.1:811"+id+"/updateNeighborRight");
+        console.log("hello Not able to access: http://http://127.0.0.1:811"+id+"/updateNeighborRight");
         setTimeout(function () {updateNeighborRight(id)}, 2000);
     };
     http.send();
@@ -64,6 +64,23 @@ router.get('/', (req, res, next) => {
         output["y"]=req.app.pendulum.y;
         res.status(200).json(output);
     }
+});
+
+router.get('/start', (req, res, next) => {
+    req.app.pendulum.running=true;
+    res.status(200).json({message:"success"});
+});
+
+router.get('/stop', (req, res, next) => {
+    req.app.pendulum.running=false;
+    req.app.pendulum.angVel=0.0;
+    req.app.pendulum.angAcc=0.0;
+    res.status(200).json({message:"success"});
+});
+
+router.get('/freeze', (req, res, next) => {
+    req.app.pendulum.running=false;
+    res.status(200).json({message:"success"});
 });
 
 router.post('/', (req, res, next) => {

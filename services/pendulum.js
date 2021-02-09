@@ -9,7 +9,7 @@ class Pendulum {
         this.b=0.998;
 
         //environmental properties
-        this.wind = null;
+        this.wind = 0;
         this.g = -9.81;
 
         //derived properties
@@ -27,6 +27,14 @@ class Pendulum {
         this.minTheta=-0.80;
         this.maxB=1.0;
         this.minB=0.5;
+
+        //max values for environment
+        this.maxWind=5.0;
+        this.minWind=2.0;
+        this.maxG=-1.0;
+        this.minG=-30.0;
+
+        this.running = true;
 
         //define neighbors
         if(this.id!=1){
@@ -89,17 +97,29 @@ class Pendulum {
         this.angAcc=Math.round(this.angAcc*10000)/10000;
         this.angVel=Math.round(this.angVel*10000)/10000;
     }
-    
+    //-this.b/this.mass*this.theta+
     updatePos(timestep){ 
-        this.angAcc = -this.b/this.mass*this.theta+this.g/this.length*Math.sin(this.theta);
-        this.angVel +=this.angAcc*timestep;
-        this.angVel *= this.b
-        this.theta += this.angVel*timestep;
-        this.x=Math.sin(this.theta)*this.length;
-        this.y=Math.cos(this.theta)*this.length;
-        this.roundProps();
-        //console.log(this.theta, this.x, this.y);
- 
+        if(this.running){
+            if(this.wind==0){ // g/l*sin(theta)
+                this.angAcc = this.g/this.length*Math.sin(this.theta);
+                this.angVel +=this.angAcc*timestep;
+                this.angVel *= this.b
+                this.theta += this.angVel*timestep;
+                this.x=Math.sin(this.theta)*this.length;
+                this.y=Math.cos(this.theta)*this.length;
+                this.roundProps();
+                //console.log(this.theta, this.x, this.y);
+            }
+            else{
+                //assume p=1.225, c=0.5
+                var fg=this.mass*this.g;
+                var fd=0.5*1.225*(this.wind**2)*0.5*this.mass*4
+                this.theta = -Math.atan(fd/fg);
+                this.x=Math.sin(this.theta)*this.length;
+                this.y=Math.cos(this.theta)*this.length;
+                this.roundProps();
+            }
+        } 
     }
 }
 
