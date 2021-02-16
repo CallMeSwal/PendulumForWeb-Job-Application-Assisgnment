@@ -588,48 +588,6 @@ updatePendButton.onclick = function (){
     
 }
 
-/*
-const userAction = async () => {
-    const response = await fetch('http://example.com/movies.json');
-    const myJson = await response.json(); //extract JSON from the http response
-    // do something with myJson
-}
-
-function CreateUI() {
-    const node = document.createElement('div');
-    node.classList.add('card');
-
-    function applyRandomColor() {
-        node.style.background = '#' + Math.floor(Math.random()*16777215).toString(16);
-    }
-    
-    // to support older browsers, use appendChild() for every child instead
-    node.append(
-        CardContent(),
-        CardButton({pressHandler: applyRandomColor})
-        )
-    
-    return node
-}
-
-function CardContent() {
-    const node = document.createElement('div');
-    node.classList.add('card__content'); // to support older browsers, use node.setAttribute('class', 'card__content') instead
-    node.textContent = 'Text text text text text text text text text text text text';
-    
-    return node
-}
-
-function CardButton({pressHandler}) {
-    const node = document.createElement('div');
-    node.textContent = 'Press me';
-    node.classList.add('card__button');
-    
-    node.addEventListener('click', pressHandler);
-
-    return node
-}*/
-
 var selectedPendulum = 0;
 
 $(document).ready(function () {
